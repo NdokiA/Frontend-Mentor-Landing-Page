@@ -12,7 +12,18 @@
     --grey: #838290;
 }
 
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     min-height: 100vh;
     font-family: 'Red Hat Display', sans-serif;
     font-size: 1.6rem;
@@ -34,7 +45,7 @@ h2{
 }
 p{
     font-size: 16px;
-    color: var(--dark-blue);
+    color: var(--grey);
 }
 
 button{
@@ -55,6 +66,7 @@ button span{
 /* Header */
 
 header{
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,7 +79,7 @@ header{
 }
 
 .logo{
-    max-width: 10rem;
+    max-width: 15rem;
     margin-bottom: 3rem;
 }
 
@@ -97,10 +109,17 @@ header{
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin: 2rem 2rem;
+    margin: 2rem;
+    max-width: 34rem;
     
 }
 
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 .download-header{
     background-color: var(--soft-cyan);
 }
@@ -148,6 +167,7 @@ main{
 }
 
 .content-images {
+    max-width: 100%;
     margin: 3rem 4rem;
     display: flex;
     flex-direction: row;
@@ -157,11 +177,13 @@ main{
 }
 
 .content-images img{
+    width: 21vw;
     max-width: 15rem;
     border-radius: 10px;
 }
 
 .content-texts{
+    width: 100%;
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
@@ -174,7 +196,7 @@ main{
 .content-texts p{
     margin: 1rem;
     margin-bottom: 0;
-    width: 27.5rem
+    width: 100%;
 }
 
 .separator-2{
@@ -185,12 +207,13 @@ main{
 }
 /* Footer */
 footer {
+    width: 100%;
   position: relative; 
   z-index: 0; 
   background-image: url('assets/desktop/image-footer.jpg'); 
   background-size: cover;
   background-position: center;
-  padding: 5rem 7rem;
+  padding: 5rem 4rem;
 
   display: flex;
   flex-direction: row; 
@@ -215,9 +238,76 @@ footer h1{
 }
 footer p{
     color: white;
-    width: 19rem;
+    max-width: 17rem;
 }
 
 footer button{
     background-color: var(--soft-purple);
+}
+
+/* tablet display style */
+@media screen and (max-width: 856px) {
+    .hero-right{display: none;}
+    .hero-left{display: none;}
+
+    .hero-tablet {
+        max-width: 100%;
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+    }
+    
+    .hero-tablet img {
+        max-width: 100%;
+        min-width: 25rem;
+        height: auto; 
+        display: block; 
+        margin: 0 auto; 
+    }
+    .hero{
+        gap: 2rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+    .hero-text{
+        max-width: 30rem;
+    }
+
+    footer{
+        background-image: url('assets/tablet/image-footer.jpg');
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 7rem;
+        gap: 4rem;
+    }
+
+    footer p{
+        width: 32rem;
+    }
+}
+
+@media screen and (max-width: 516px) {
+    header{
+        margin: 2rem;
+    }
+    .hero-text{
+        margin-top: 0;
+    }
+
+    .content-images{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin: 2rem 0;
+    }
+
+    .content-images img{
+        min-width: 9rem;
+    }
+
+    .content-texts{
+        margin: 1rem 0;
+    }
 }
